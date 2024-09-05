@@ -1,6 +1,7 @@
 
 
 return {
+
 	{
 		"williamboman/mason.nvim",
 		config = function()
@@ -18,8 +19,10 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+	
 			local lspconfig = require("lspconfig")
-			-- Starting
+
+			-- Install language server
 			lspconfig.lua_ls.setup({})
 			lspconfig.clangd.setup({})
 			lspconfig.cmake.setup({})
@@ -31,12 +34,14 @@ return {
 			lspconfig.grammarly.setup({})
 			lspconfig.pyright.setup({})
 			lspconfig.cssls.setup({})
-			
 
 			-- Keymaps
 			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-		end
+			vim.keymap.set('n', 'L', vim.lsp.buf.definition, {})
+			vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
 
+
+		end
 	}
 
 }
