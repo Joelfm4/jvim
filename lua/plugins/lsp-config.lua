@@ -11,7 +11,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = {"lua_ls", "clangd", "cmake", "cssls", "docker_compose_language_service", "html", "tsserver", "jsonls", "grammarly", "pyright", "cssls"}
+				ensure_installed = {"lua_ls", "clangd", "cmake", "cssls", "docker_compose_language_service", "html", "ast_grep", "jsonls", "grammarly", "pyright"}
 			})
 		end
 	},
@@ -26,11 +26,15 @@ return {
 			lspconfig.cssls.setup({})
 			lspconfig.docker_compose_language_service.setup({})
 			lspconfig.html.setup({})
-			lspconfig.tsserver.setup({})
+			lspconfig.ast_grep.setup({})
 			lspconfig.jsonls.setup({})
 			lspconfig.grammarly.setup({})
 			lspconfig.pyright.setup({})
 			lspconfig.cssls.setup({})
+			
+
+			-- Keymaps
+			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 		end
 
 	}
