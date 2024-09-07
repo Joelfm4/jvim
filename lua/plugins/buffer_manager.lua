@@ -34,7 +34,7 @@ return {
 				require("buffer_manager.ui").nav_next()
 			end, { noremap = true, silent = true })
 
-			vim.keymap.set("n", "<Leader>fp", function()
+			vim.keymap.set("n", "<Leader>fm", function()
 				require("buffer_manager.ui").nav_prev()
 			end, { noremap = true, silent = true })
 
