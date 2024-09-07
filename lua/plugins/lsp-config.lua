@@ -19,21 +19,43 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-	
+			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 			local lspconfig = require("lspconfig")
 
 			-- Install language server
-			lspconfig.lua_ls.setup({})
-			lspconfig.clangd.setup({})
-			lspconfig.cmake.setup({})
-			lspconfig.cssls.setup({})
-			lspconfig.docker_compose_language_service.setup({})
-			lspconfig.html.setup({})
-			lspconfig.ast_grep.setup({})
-			lspconfig.jsonls.setup({})
-			lspconfig.grammarly.setup({})
-			lspconfig.pyright.setup({})
-			lspconfig.cssls.setup({})
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities
+			})
+			lspconfig.clangd.setup({
+				capabilities = capabilities
+			})
+			lspconfig.cmake.setup({
+				capabilities = capabilities
+			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities
+			})
+			lspconfig.docker_compose_language_service.setup({
+				capabilities = capabilities
+			})
+			lspconfig.html.setup({
+				capabilities = capabilities
+			})
+			lspconfig.ast_grep.setup({
+				capabilities = capabilities
+			})
+			lspconfig.jsonls.setup({
+				capabilities = capabilities
+			})
+			lspconfig.grammarly.setup({
+				capabilities = capabilities
+			})
+			lspconfig.pyright.setup({
+				capabilities = capabilities
+			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities
+			})
 
 			-- Keymaps
 			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
