@@ -53,9 +53,7 @@ return {
 			lspconfig.pyright.setup({
 				capabilities = capabilities
 			})
-			lspconfig.cssls.setup({
-				capabilities = capabilities
-			})
+
 
 			-- Keymaps
 			vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
