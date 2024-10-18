@@ -71,7 +71,6 @@ return {
       }
     }
 
-    -- DAP Configurations for Rust with codelldb
     dap.configurations.rust = {
       {
         name = "Launch",
@@ -85,7 +84,6 @@ return {
       }
     }
 
-    -- Install codelldb using mason-nvim-dap
     mason_dap.setup({
       ensure_installed = { "codelldb" }
     })

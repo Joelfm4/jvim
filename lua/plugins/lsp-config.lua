@@ -33,7 +33,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- Install language server
-			lspconfig.lua_ls.setup({
+			lspconfig.ast_grep.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.clangd.setup({
@@ -45,6 +45,9 @@ return {
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.css_variables.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.docker_compose_language_service.setup({
 				capabilities = capabilities,
 			})
@@ -52,19 +55,22 @@ return {
 				capabilities = capabilities,
 				filetypes = { "html", "htmldjango" },
 			})
-			lspconfig.ast_grep.setup({
-				capabilities = capabilities,
-			})
 			lspconfig.jsonls.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.grammarly.setup({
+			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.tsp_server.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
 
