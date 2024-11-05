@@ -24,5 +24,8 @@
 ## Terminal
 - **`<Leader>ft`**: Open terminal
 
-## Debugging
-- **``** : 
+## Harpoon
+- **`<leader>hm`**: Adds the current file as a mark.
+- **`<leader>hq`**: Opens the Harpoon quick menu to view and manage all marks.
+- **`<leader>h1 to <leader>h4`**: Directly navigates to marks 1 through 4.
+- **`<leader>hn and <leader>hp`**: Cycle through the marks (next and previous).
