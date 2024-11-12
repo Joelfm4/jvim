@@ -32,7 +32,6 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
-			-- Install language server
 			lspconfig.ast_grep.setup({
 				capabilities = capabilities,
 			})

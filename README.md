@@ -19,7 +19,7 @@
 - **`<Leader>e`**: Open file tree
 
 ## Undo Tree
-- **`<Leader>u`**: Open undo tree
+- **`<Leader>p`**: Open undo tree
 
 ## Miscellaneous
 - **`<Leader>gf`**: Auto-format
