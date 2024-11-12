@@ -18,6 +18,9 @@
 ## File Tree
 - **`<Leader>e`**: Open file tree
 
+## Undo Tree
+- **`<Leader>u`**: Open undo tree
+
 ## Miscellaneous
 - **`<Leader>gf`**: Auto-format
 
@@ -29,3 +32,13 @@
 - **`<leader>hq`**: Opens the Harpoon quick menu to view and manage all marks.
 - **`<leader>h1 to <leader>h4`**: Directly navigates to marks 1 through 4.
 - **`<leader>hn and <leader>hp`**: Cycle through the marks (next and previous).
+
+
+## Move Lines 
+- **`<A-j>`**: Moves the current line one position down
+- **`<A-k>`**: Moves the current line one position up 
+- **`<A-h>`**: Moves the current character one position left 
+- **`<A-l>`**: Moves the current character one position right
+
+
+
