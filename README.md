@@ -17,6 +17,7 @@
 
 ## File Tree
 - **`<Leader>e`**: Open file tree
+- **`<Leader>q`**: Close file tree
 
 ## Undo Tree
 - **`<Leader>p`**: Open undo tree

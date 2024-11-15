@@ -10,5 +10,6 @@ return {
 	},
 	config = function()
 		vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal right<CR>', {})
+		vim.keymap.set('n', '<leader>q', ':Neotree filesystem close right<CR>', {})
 	end
 }
