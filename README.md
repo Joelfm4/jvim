@@ -42,4 +42,8 @@
 - **`<A-l>`**: Moves the current character one position right
 
 
+## Surround selections
+-- **`cs'"`**: Change quotes
+
+
 
