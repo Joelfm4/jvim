@@ -43,7 +43,7 @@
 
 
 ## Surround selections
--- **`cs'"`**: Change quotes
+- **`cs'"`**: Change quotes
 
 
 
