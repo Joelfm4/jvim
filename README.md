@@ -43,7 +43,9 @@
 
 
 ## Surround selections
-- **`cs'"`**: Change quotes
+- **`cs'"`**: Change quotes (but not limited to)
+- **`ds"`**: Delete quotes (but not limited to)
+- **`di"`**: Delete everything inside quotes (but not limited to) 
 
 
 
