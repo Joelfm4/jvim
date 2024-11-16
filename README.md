@@ -43,9 +43,15 @@
 
 
 ## Surround selections
-- **`cs'"`**: Change quotes (but not limited to)
-- **`ds"`**: Delete quotes (but not limited to)
+
 - **`di"`**: Delete everything inside quotes (but not limited to) 
 
-
-
+    Old text                    Command         New text
+--------------------------------------------------------------------------------
+    surround_words             ysiw)           (surround_words)
+    make strings               ys$"            "make strings"
+    [delete around me!]        ds]             delete around me!
+    remove <b>HTML tags</b>    dst             remove HTML tags
+    'change quotes'            cs'"            "change quotes"
+    <b>or tag types</b>        csth1<CR>       <h1>or tag types</h1>
+    delete(functi*on calls)     dsf             function calls
