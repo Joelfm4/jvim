@@ -24,6 +24,9 @@ return {
 				-- Cpp
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.diagnostics.cppcheck,
+
+				-- ASM
+				null_ls.builtins.formatting.asmfmt,
 			},
 		})
 

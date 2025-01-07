@@ -2,10 +2,12 @@ return {
 
 	{
 		"williamboman/mason.nvim",
+
 		config = function()
 			require("mason").setup()
 		end,
 	},
+
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
@@ -22,56 +24,29 @@ return {
 					"grammarly",
 					"pyright",
 					"tailwindcss",
+					"asm_lsp"
 				},
 			})
 		end,
 	},
+
 	{
 		"neovim/nvim-lspconfig",
+
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
-			lspconfig.ast_grep.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.cmake.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.cssls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.css_variables.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.docker_compose_language_service.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.html.setup({
-				capabilities = capabilities,
-				filetypes = { "html", "htmldjango" },
-			})
-			lspconfig.jsonls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.tailwindcss.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.tsp_server.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
-			})
+			local servers = {
+        "ast_grep", "clangd", "cmake", "cssls", "docker_compose_language_service", 
+        "html", "jsonls", "lua_ls", "pyright", "tailwindcss", "asm_lsp"
+      }
+
+      for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup({
+          capabilities = capabilities,
+        })
+      end
 
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -79,4 +54,5 @@ return {
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},
+
 }

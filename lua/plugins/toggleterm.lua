@@ -1,11 +1,14 @@
 return {
-
 	"akinsho/toggleterm.nvim",
+
 	version = "*",
+
 	config = function()
+
 		require("toggleterm").setup({
 			direction = "horizontal",
 			open_mapping = "<Leader>ft",
+			auto_scroll = true,
 			shade_filetypes = {},
 			shade_terminals = true,
 			shading_factor = 2,

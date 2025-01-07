@@ -57,3 +57,7 @@
     <b>or tag types</b>        csth1<CR>       <h1>or tag types</h1>
     delete(function calls)     dsf             function calls
 ```
+
+## Command-line Suggestions
+- **`<Tab>`**: Next Key
+- **`<S-Tab>`**: Previous Key

@@ -45,9 +45,11 @@ return {
 				{ name = 'luasnip' },
 				{ name = 'snippy' },
 			},
+
 			{
 				{ name = "buffer" },
 			}),
+
 		})
 
 	end,

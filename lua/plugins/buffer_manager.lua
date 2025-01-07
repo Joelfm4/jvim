@@ -1,11 +1,11 @@
 return {
-	"j-morano/buffer_manager.nvim",
-	{
 		"j-morano/buffer_manager.nvim",
+
 		dependencies = { "nvim-lua/plenary.nvim" },
+
 		config = function()
 			require("buffer_manager").setup({
-				-- Configurações personalizadas aqui
+
 				line_keys = "1234567890",
 				select_menu_item_commands = {
 					edit = {
@@ -13,6 +13,7 @@ return {
 						command = "edit",
 					},
 				},
+
 				focus_alternate_buffer = false,
 				short_file_names = false,
 				short_term_names = false,
@@ -39,5 +40,4 @@ return {
 			end, { noremap = true, silent = true })
 
 		end,
-	},
 }
