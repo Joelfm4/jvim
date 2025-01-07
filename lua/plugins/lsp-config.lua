@@ -38,7 +38,7 @@ return {
 			local lspconfig = require("lspconfig")
 
 			local servers = {
-        "ast_grep", "clangd", "cmake", "cssls", "docker_compose_language_service", 
+        "ast_grep", "clangd", "cmake", "cssls", "docker_compose_language_service",
         "html", "jsonls", "lua_ls", "pyright", "tailwindcss", "asm_lsp"
       }
 
@@ -51,7 +51,8 @@ return {
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "L", vim.lsp.buf.definition, {})
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 		end,
 	},
 

@@ -14,6 +14,7 @@
 - **`<K>`**: Show hover information
 - **`<L>`**: Go to definition
 - **`<Leader>ca`**: Code actions
+- **`<Leader>rn`**: Rename 
 
 ## File Tree
 - **`<Leader>e`**: Open file tree
