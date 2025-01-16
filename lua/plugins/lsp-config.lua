@@ -1,3 +1,21 @@
+local servers = {
+	"ast_grep",
+	"asm_lsp",
+	"clangd",
+	"cmake",
+	"cssls",
+	"docker_compose_language_service",
+	"html",
+	"htmx",
+	"jsonls",
+	"lua_ls",
+	"pyright",
+	"ruff",
+	"tailwindcss",
+	"tsp_server",
+	"ts_ls",
+}
+
 return {
 
 	{
@@ -12,20 +30,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"clangd",
-					"cmake",
-					"cssls",
-					"docker_compose_language_service",
-					"html",
-					"ast_grep",
-					"jsonls",
-					"grammarly",
-					"pyright",
-					"tailwindcss",
-					"asm_lsp"
-				},
+				ensure_installed = servers,
 			})
 		end,
 	},
@@ -37,16 +42,11 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
-			local servers = {
-        "ast_grep", "clangd", "cmake", "cssls", "docker_compose_language_service",
-        "html", "jsonls", "lua_ls", "pyright", "tailwindcss", "asm_lsp"
-      }
-
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup({
-          capabilities = capabilities,
-        })
-      end
+			for _, lsp in ipairs(servers) do
+				lspconfig[lsp].setup({
+					capabilities = capabilities,
+				})
+			end
 
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -55,5 +55,4 @@ return {
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 		end,
 	},
-
 }

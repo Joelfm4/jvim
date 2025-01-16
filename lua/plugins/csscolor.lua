@@ -21,7 +21,6 @@ return {
 			---Set virtual symbol position()
 			virtual_symbol_position = "inline",
 
-
 			enable_hex = true,
 			enable_short_hex = true,
 			enable_rgb = true,
@@ -32,11 +31,9 @@ return {
 			exclude_filetypes = {},
 			exclude_buftypes = {},
 
-
 			formatting = {
 				format = require("nvim-highlight-colors").format,
 			},
-
 		})
 	end,
 }

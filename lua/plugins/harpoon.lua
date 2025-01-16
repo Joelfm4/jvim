@@ -1,7 +1,9 @@
 return {
 	"ThePrimeagen/harpoon",
+
 	config = function()
-		 local harpoon = require("harpoon")
+
+		require("harpoon")
 
 		-- Adding a mark for the current file
 		vim.api.nvim_set_keymap("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true, silent = true })

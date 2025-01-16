@@ -14,12 +14,13 @@ return {
 				null_ls.builtins.formatting.stylua,
 
 				-- JavaScript
-				null_ls.builtins.formatting.prettier,
 				require("none-ls.diagnostics.eslint_d"),
 
 				-- Python
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
+				null_ls.builtins.formatting.ruff,
+				null_ls.builtins.formatting.djlint,
 
 				-- Cpp
 				null_ls.builtins.formatting.clang_format,
@@ -27,6 +28,9 @@ return {
 
 				-- ASM
 				null_ls.builtins.formatting.asmfmt,
+
+				-- Other
+				null_ls.builtins.formatting.prettier,
 			},
 		})
 

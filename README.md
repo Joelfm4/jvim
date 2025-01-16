@@ -1,4 +1,4 @@
-# Vim Shortcuts
+# Keymaps
 
 ## Buffer Manager
 - **`<Leader>fb`**: Quick menu
@@ -6,11 +6,10 @@
 - **`<Leader>fm`**: Navigate to the previous buffer
 
 ## Autocompletion
-- **`<C-Space>`**: Complete
 - **`<C-e>`**: Abort
 - **`<CR>`**: Confirm
 
-## LSP (Language Server Protocol)
+## LSP
 - **`<K>`**: Show hover information
 - **`<L>`**: Go to definition
 - **`<Leader>ca`**: Code actions
@@ -42,23 +41,24 @@
 - **`<A-h>`**: Moves the current character one position left 
 - **`<A-l>`**: Moves the current character one position right
 
-
-## Surround selections
-
-- **`di"`**: Delete everything inside quotes (but not limited to) 
-
-```help
-    Old text                    Command         New text
---------------------------------------------------------------------------------
-    surround_words             ysiw)           (surround_words)
-    make strings               ys$"            "make strings"
-    [delete ar*ound me!]        ds]             delete around me!
-    remove <b>HTML tags</b>    dst             remove HTML tags
-    'change quotes'            cs'"            "change quotes"
-    <b>or tag types</b>        csth1<CR>       <h1>or tag types</h1>
-    delete(function calls)     dsf             function calls
-```
-
 ## Command-line Suggestions
 - **`<Tab>`**: Next Key
 - **`<S-Tab>`**: Previous Key
+
+## Surround selections
+
+```
+    Old text                    Command         New text
+--------------------------------------------------------------------------------
+    surround_words              ysiw)           (surround_words)
+    make strings                ys$"            "make strings"
+    [delete ar*ound me!]        ds]             delete around me!
+    remove <b>HTML tags</b>     dst             remove HTML tags
+    'change quotes'             cs'"            "change quotes"
+    <b>or tag types</b>         csth1<CR>       <h1>or tag types</h1>
+    delete(function calls)      dsf             function calls
+    "delete text"               di"             ""
+```
+
+
+

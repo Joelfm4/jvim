@@ -4,7 +4,6 @@ return {
 	version = "*",
 
 	config = function()
-
 		require("toggleterm").setup({
 			direction = "horizontal",
 			open_mapping = "<Leader>ft",

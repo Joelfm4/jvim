@@ -1,17 +1,15 @@
 return {
-    "gelguy/wilder.nvim",
+	"gelguy/wilder.nvim",
 
-	  event = 'CmdlineEnter',
+	event = "CmdlineEnter",
 
-    config = function()
-      local wilder = require('wilder')
+	config = function()
+		local wilder = require("wilder")
 
-      wilder.setup({
-        modes = {':', '/', '?'},
-        next_key = '<Tab>',
-			  previous_key = '<S-Tab>',
-      })
-
-    end
-
+		wilder.setup({
+			modes = { ":", "/", "?" },
+			next_key = "<Tab>",
+			previous_key = "<S-Tab>",
+		})
+	end,
 }
