@@ -10,16 +10,14 @@ return {
 
 		null_ls.setup({
 			sources = {
+				require("none-ls.diagnostics.eslint_d"),
+
 				-- Lua
 				null_ls.builtins.formatting.stylua,
 
-				-- JavaScript
-				require("none-ls.diagnostics.eslint_d"),
-
-				-- Python
+				-- JavaScript 
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
-				null_ls.builtins.formatting.ruff,
 				null_ls.builtins.formatting.djlint,
 
 				-- Cpp
