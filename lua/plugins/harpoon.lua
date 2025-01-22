@@ -3,7 +3,9 @@ return {
 
 	config = function()
 
-		require("harpoon")
+		require("harpoon").setup({
+			width = vim.api.nvim_win_get_width(0) - 4,
+		})
 
 		-- Adding a mark for the current file
 		vim.api.nvim_set_keymap("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true, silent = true })
