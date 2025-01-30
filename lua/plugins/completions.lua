@@ -47,8 +47,8 @@ return {
 				),
 			})
 
-			vim.keymap.set('i', '<C-e>', cmp.mapping.abort(), { desc = "Abort completion" })
-      vim.keymap.set('i', '<CR>', cmp.mapping.confirm({ select = true }), { desc = "Confirm selection" })
+			vim.keymap.set('i', '<C-e>', cmp.mapping.abort(), { desc = "Lsp - Abort completion" })
+      vim.keymap.set('i', '<CR>', cmp.mapping.confirm({ select = true }), { desc = "Lsp - Confirm selection" })
 
 		end,
 	},

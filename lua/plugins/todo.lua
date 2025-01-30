@@ -9,7 +9,7 @@ return {
 
 	config = function(_, opts)
 		require("todo-comments").setup(opts)
-		vim.keymap.set("n", "<leader>fft", "<cmd>TodoTelescope<CR>", { desc = "Search for todos" })
-		vim.keymap.set("n", "<leader>fflt", "<cmd>TodoQuickFix<CR>", { desc = "List the TODOs in Quickfix" })
+		vim.keymap.set("n", "<leader>fft", "<cmd>TodoTelescope<CR>", { desc = "Todo - Search for todos" })
+		vim.keymap.set("n", "<leader>fflt", "<cmd>TodoQuickFix<CR>", { desc = "Todo - List" })
 	end,
 }

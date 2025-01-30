@@ -36,7 +36,7 @@ return {
 		end,
 
 		keys = {
-			{ "<leader>p", "<cmd>lua require('undotree').toggle()<cr>", desc = "Toggle UndoTree" },
+			{ "<leader>p", "<cmd>lua require('undotree').toggle()<cr>", desc = "UndoTree" },
 		},
 	},
 }

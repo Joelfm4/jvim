@@ -32,6 +32,6 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Auto-format" })
+		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Lsp - Auto-format" })
 	end,
 }
