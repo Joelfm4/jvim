@@ -29,7 +29,7 @@ return {
 	config = function(_, opts)
 		require("neo-tree").setup(opts)
 
-		vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal right<CR>", {})
-		vim.keymap.set("n", "<leader>q", ":Neotree filesystem close right<CR>", {})
+		vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal right<CR>", { desc = "Reveal Neotree" })
+		vim.keymap.set("n", "<leader>q", ":Neotree filesystem close right<CR>", { desc = "Close Neotree" })
 	end,
 }

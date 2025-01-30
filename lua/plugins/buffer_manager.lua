@@ -26,18 +26,9 @@ return {
 				show_indicators = nil,
 			})
 
-			-- Key mapping
-			vim.keymap.set("n", "<Leader>fb", function()
-				require("buffer_manager.ui").toggle_quick_menu()
-			end, { noremap = true, silent = true })
-
-			vim.keymap.set("n", "<Leader>fn", function()
-				require("buffer_manager.ui").nav_next()
-			end, { noremap = true, silent = true })
-
-			vim.keymap.set("n", "<Leader>fm", function()
-				require("buffer_manager.ui").nav_prev()
-			end, { noremap = true, silent = true })
+			vim.keymap.set("n", "<Leader>fb", function() require("buffer_manager.ui").toggle_quick_menu() end, { noremap = true, silent = true, desc = "Toggle buffer manager quick menu" })
+			vim.keymap.set("n", "<Leader>fn", function() require("buffer_manager.ui").nav_next() end, { noremap = true, silent = true, desc = "Navigate to next buffer" })
+			vim.keymap.set("n", "<Leader>fm", function() require("buffer_manager.ui").nav_prev() end, { noremap = true, silent = true, desc = "Navigate to previous buffer" })
 
 		end,
 }
