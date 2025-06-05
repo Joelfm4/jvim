@@ -11,10 +11,10 @@ return {
 		local opts = { noremap = true, silent = true }
 
 		-- Adding a mark for the current file
-		vim.api.nvim_set_keymap("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<CR>", vim.tbl_extend("force", opts, { desc = "Harpoon - Add current file to Harpoon marks" }))
+		vim.api.nvim_set_keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", vim.tbl_extend("force", opts, { desc = "Harpoon - Add current file to Harpoon marks" }))
 
 		-- Quick menu
-		vim.api.nvim_set_keymap("n", "<leader>hq", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", vim.tbl_extend("force", opts, { desc = "Harpoon - Quick menu" }))
+		vim.api.nvim_set_keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", vim.tbl_extend("force", opts, { desc = "Harpoon - Quick menu" }))
 
 		-- Navigation to specific marks
 		vim.api.nvim_set_keymap("n", "<leader>h1", ":lua require('harpoon.ui').nav_file(1)<CR>", vim.tbl_extend("force", opts, { desc = "Harpoon - Navigate to mark 1" }))
