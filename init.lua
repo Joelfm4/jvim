@@ -34,3 +34,10 @@ vim.keymap.set("n", "fc", "zc", { desc = "Fold current function / block" })
 vim.keymap.set("n", "fo", "zo", { desc = "Unfold current function / block" })
 vim.keymap.set("n", "fC", "zM", { desc = "Close all folds in buffer" })
 vim.keymap.set("n", "fO", "zR", { desc = "Open all folds in buffer" })
+
+
+-- Tabs
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+-- vim.opt.list = true
