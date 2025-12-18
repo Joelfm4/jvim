@@ -47,3 +47,16 @@ vim.opt.expandtab = true
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+
+-- Search
+vim.keymap.set("n", "*", "*zz")
+vim.keymap.set("n", "#", "#zz")
+
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+
+
+
+
+
+
