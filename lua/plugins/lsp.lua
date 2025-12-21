@@ -49,7 +49,14 @@ return {
 
 					-- Keymaps
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Lsp - Show hover information"})
-					vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, { desc = "Lsp - Go to definition" })
+
+					vim.keymap.set("n", "<leader>d", function()
+                        vim.lsp.buf.definition()
+                        vim.defer_fn(function()
+                            vim.cmd("normal! zz") end, 100
+                        )
+                    end, { desc = "Lsp - Go to definition" })
+
 					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp - Show code actions" })
 					vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Lsp - Rename" })
 					vim.keymap.set("n", "<leader>ky", "<cmd>Telescope keymaps<CR>", { desc = "Show keymaps" })
