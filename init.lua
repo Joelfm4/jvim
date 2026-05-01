@@ -22,8 +22,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 require("preferences")
 
-vim.cmd("colorscheme retrobox")
-
+-- vim.cmd("colorscheme retrobox")
+vim.cmd("colorscheme koehler")
 
 -- Folding
 vim.opt.foldmethod = "expr"
