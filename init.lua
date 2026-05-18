@@ -16,7 +16,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-
+vim.loader.enable()
 
 -- Plugins and Opts
 require("lazy").setup("plugins")

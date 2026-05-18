@@ -57,10 +57,15 @@ return {
                         )
                     end, { desc = "Lsp - Go to definition" })
 
-					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp - Show code actions" })
+                    vim.lsp.inlay_hint.enable(true)
+
                     vim.keymap.set("n", "<leader>ky", "<cmd>Telescope keymaps<CR>", { desc = "Show keymaps" })
-                    vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references, { desc = "Find references" })
+					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp - Show code actions" })
 					vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Lsp - Rename" })
+                    vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references, { desc = "Lsp - Find references" })
+                    vim.keymap.set("n", "<leader>de", vim.lsp.buf.definition, { desc = "Lsp - Jump to definition" })
+                    vim.keymap.set("n", "<leader>dc", vim.lsp.buf.declaration, { desc = "Lsp - Jump to declaration" })
+					vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Lsp - Show informations" })
 
 			end,
     },
