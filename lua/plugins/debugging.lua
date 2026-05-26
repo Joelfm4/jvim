@@ -10,25 +10,24 @@ return {
     "theHamsta/nvim-dap-virtual-text",
   },
 
+
+  -- NOTE: Editor <-> Adapter <-> Debugger <-> Code
+
+
   config = function()
+
     local mason_dap = require("mason-nvim-dap")
     local dap = require("dap")
-    local dap_ui = require("dapui")
+    local ui = require("dapui")
     local dap_virtual_text = require("nvim-dap-virtual-text")
 
-
-    local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
-
-    local function get_executable_path()
-      local ext = is_windows and ".exe" or ""
-      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") .. ext
-    end
-
+    -- Dap Virtual Text
     dap_virtual_text.setup()
 
-    -- Mason DAP setup
+    -- Dap Setup
     mason_dap.setup({
-      ensure_installed = { "codelldb", "cppdbg" },
+
+      ensure_installed = { "cppdbg" },
       automatic_installation = true,
       handlers = {
         function(config)
@@ -41,69 +40,69 @@ return {
     dap.configurations.c = {
       {
         name = "Launch File",
-        type = "codelldb", -- Use codelldb for cross-platform LLDB debugging
+        type = "cppdbg",
         request = "launch",
-        program = get_executable_path,
+        program = function()
+		    return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
         cwd = "${workspaceFolder}",
         stopAtEntry = false,
-      },
-      {
-        name = "Select and attach to process",
-        type = "codelldb", -- Use codelldb instead of gdb for consistency
-        request = "attach",
-        program = get_executable_path,
-        pid = function()
-          local name = vim.fn.input("Executable name (filter): ")
-          return require("dap.utils").pick_process({ filter = name })
-        end,
-        cwd = "${workspaceFolder}",
-      },
-      {
-        name = "Attach to lldbserver :1234",
-        type = "codelldb",
-        request = "launch",
-        miDebuggerServerAddress = "localhost:1234",
-        cwd = "${workspaceFolder}",
-        program = get_executable_path,
+        MIMode = "gdb",
+        miDebuggerPath = "/usr/bin/gdb",
       },
     }
 
     dap.configurations.cpp = dap.configurations.c
 
     -- Dap UI
-    dap_ui.setup()
+    ui.setup()
+
     vim.fn.sign_define("DapBreakpoint", { text = "🐞" })
 
-    -- DAP UI listeners
+    -- Dap UI Listeners
     dap.listeners.before.attach.dapui_config = function()
-      dap_ui.open()
+      ui.open()
     end
     dap.listeners.before.launch.dapui_config = function()
-      dap_ui.open()
+      ui.open()
     end
     dap.listeners.before.event_terminated.dapui_config = function()
-      dap_ui.close()
+      ui.close()
     end
     dap.listeners.before.event_exited.dapui_config = function()
-      dap_ui.close()
+      ui.close()
     end
 
     -- Keymaps
-    vim.keymap.set("n", "<Leader>dc", function() require("dap").continue() end, { desc = "Debugger - Continue debugger" })
-    vim.keymap.set("n", "<Leader>dd", function() require("dap").disconnect({terminateDebuggee = true}) end, { desc = "Debugger - Disconnect debugger" })
+    vim.keymap.set("n", "<Leader>dc", function() require("dap").continue() end, { desc = "Debugger - Continue / Start" })
+    vim.keymap.set("n", "<Leader>dd", function() require("dap").disconnect({ terminateDebuggee = true }) end, { desc = "Debugger - Disconnect" })
+    vim.keymap.set("n", "<Leader>dl", function() require("dap").run_last() end, { desc = "Debugger - Run Last Configuration" })
 
+    vim.keymap.set("n", "<Leader>dq", function()
 
-    vim.keymap.set("n", "<Leader>db", function() require("dap").toggle_breakpoint() end, { desc = "Debugger - Toggle breakpoint" })
-    vim.keymap.set("n", "<Leader>dB", function() require("dap").set_breakpoint() end, { desc = "Debugger - Set breakpoint" })
-    vim.keymap.set("n", "<Leader>dbl", function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, { desc = "Debugger - Set breakpoint with log point" })
+        require("dap").terminate()
+        require("dapui").close()
+        if pcall(require, "nvim-dap-virtual-text") then
+            require("nvim-dap-virtual-text").toggle()
+        end
 
-    vim.keymap.set({ "n", "v" }, "<Leader>dvi", function() require("dap.ui.widgets").hover() end, { desc = "Debugger - Hover to show variable information" })
-    vim.keymap.set({ "n", "v" }, "<Leader>dvip", function() require("dap.ui.widgets").preview() end, { desc = "Debugger - Preview variable information" })
+    end, { desc = "Debugger - Terminate & Clean UI" })
 
-    vim.keymap.set("n", "<Leader>dsi", function() require("dap").step_into() end, { desc = "Debugger - Step into" })
-    vim.keymap.set("n", "<Leader>dso", function() require("dap").step_over() end, { desc = "Debugger - Step over" })
-    vim.keymap.set("n", "<Leader>dsO", function() require("dap").step_out() end, { desc = "Debugger - Step out" })
+    -- Stepping
+    vim.keymap.set("n", "<Leader>di", function() require("dap").step_into() end, { desc = "Debugger - Step Into" })
+    vim.keymap.set("n", "<Leader>do", function() require("dap").step_over() end, { desc = "Debugger - Step Over" })
+    vim.keymap.set("n", "<Leader>du", function() require("dap").step_out() end, { desc = "Debugger - Step Out" })
 
+    -- Break Point
+    vim.keymap.set("n", "<Leader>dt", function() require("dap").toggle_breakpoint() end, { desc = "Debugger - Toggle Breakpoint" })
+    vim.keymap.set("n", "<Leader>db", function() require("dap").list_breakpoints() end, { desc = "Debugger - List All Breakpoints" })
+    vim.keymap.set("n", "<Leader>dpl", function() require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, { desc = "Debugger - Log Point" })
+    vim.keymap.set("n", "<Leader>de", function() require("dap").set_exception_breakpoints({ "all" }) end, { desc = "Debugger - Break on Exceptions" })
+
+    -- Inspecting Variables
+    vim.keymap.set({ "n", "v" }, "<Leader>dv", function() require("dap.ui.widgets").hover() end, { desc = "Debugger - Hover Variable Info" })
+    vim.keymap.set({ "n", "v" }, "<Leader>dp", function() require("dap.ui.widgets").preview() end, { desc = "Debugger - Preview Variable Window" })
+    vim.keymap.set("n", "<Leader>dr", function() require("dap").repl.open() end, { desc = "Debugger - Open REPL Console" })
 
   end,
 }
