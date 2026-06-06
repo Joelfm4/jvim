@@ -12,6 +12,7 @@ local servers = {
     "tailwindcss",
     "tsp_server",
     "ts_ls",
+    "hls",
 }
 
 return {
