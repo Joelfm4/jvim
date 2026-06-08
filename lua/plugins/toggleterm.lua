@@ -5,7 +5,7 @@ return {
 
 	config = function()
 		require("toggleterm").setup({
-			direction = "horizontal",
+			direction = "vertical",
 			open_mapping = "<Leader>ft",
 			auto_scroll = true,
 			shade_filetypes = {},
