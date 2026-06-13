@@ -1,22 +1,22 @@
 return {
-	"akinsho/toggleterm.nvim",
+    "akinsho/toggleterm.nvim",
 
-	version = "*",
+    version = "*",
 
-	config = function()
-		require("toggleterm").setup({
-			direction = "vertical",
-			open_mapping = "<Leader>ft",
-			auto_scroll = true,
-			shade_filetypes = {},
-			shade_terminals = true,
-			shading_factor = 2,
-			start_in_insert = true,
-			insert_mappings = true,
-			terminal_mappings = true,
-			persist_mode = true,
-			close_on_exit = true,
-			shell = vim.o.shell,
-		})
-	end,
+    config = function()
+        require("toggleterm").setup({
+            direction = "vertical",
+            open_mapping = "<Leader>ft",
+            auto_scroll = true,
+            shade_filetypes = {},
+            shade_terminals = true,
+            shading_factor = 2,
+            start_in_insert = true,
+            insert_mappings = true,
+            terminal_mappings = true,
+            persist_mode = true,
+            close_on_exit = true,
+            shell = vim.o.shell,
+        })
+    end,
 }

@@ -1,74 +1,60 @@
 local servers = {
-    "ast_grep",
     "asm_lsp",
     "clangd",
     "cmake",
-    "cssls",
-    "html",
-    "jsonls",
     "lua_ls",
-    "pyright",
     "ruff",
-    "tailwindcss",
-    "tsp_server",
-    "ts_ls",
     "hls",
 }
 
 return {
 
     {
-			"williamboman/mason.nvim",
-			config = function()
-				require("mason").setup()
-			end,
+            "williamboman/mason.nvim",
+            config = function()
+                require("mason").setup()
+            end,
     },
 
 
     {
-			"williamboman/mason-lspconfig.nvim",
-			config = function()
-				require("mason-lspconfig").setup({
-						ensure_installed = servers,
-				})
-			end,
+            "williamboman/mason-lspconfig.nvim",
+            config = function()
+                require("mason-lspconfig").setup({ensure_installed = servers})
+            end,
     },
 
 
     {
-			"neovim/nvim-lspconfig",
-			config = function()
+            "neovim/nvim-lspconfig",
+            config = function()
 
-					local capabilities = require("cmp_nvim_lsp").default_capabilities()
-					local lspconfig = require("lspconfig")
+                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-					for _, lsp in ipairs(servers) do
-							lspconfig[lsp].setup({
-									capabilities = capabilities,
-							})
-					end
+                    for _, lsp in ipairs(servers) do
+                        vim.lsp.config(lsp, {capabilities = capabilities})
+                        vim.lsp.enable(lsp)
+                    end
 
-					-- Keymaps
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Lsp - Show hover information"})
+                    -- Keymaps
+                    vim.lsp.inlay_hint.enable(true)
 
-					vim.keymap.set("n", "<leader>d", function()
+                    vim.keymap.set("n", "<leader>d", function()
                         vim.lsp.buf.definition()
                         vim.defer_fn(function()
                             vim.cmd("normal! zz") end, 100
                         )
                     end, { desc = "Lsp - Go to definition" })
 
-                    vim.lsp.inlay_hint.enable(true)
-
                     vim.keymap.set("n", "<leader>ky", "<cmd>Telescope keymaps<CR>", { desc = "Show keymaps" })
-					vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp - Show code actions" })
-					vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Lsp - Rename" })
+                    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Lsp - Show code actions" })
+                    vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Lsp - Rename" })
                     vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references, { desc = "Lsp - Find references" })
                     vim.keymap.set("n", "<leader>de", vim.lsp.buf.definition, { desc = "Lsp - Jump to definition" })
                     vim.keymap.set("n", "<leader>dc", vim.lsp.buf.declaration, { desc = "Lsp - Jump to declaration" })
-					vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Lsp - Show informations" })
+                    vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Lsp - Show informations" })
 
-			end,
+        end,
     },
 
 

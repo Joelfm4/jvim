@@ -1,10 +1,10 @@
 return {
-	"folke/trouble.nvim",
+    "folke/trouble.nvim",
 
-	opts = {},
+    opts = {},
     cmd = "Trouble",
 
-	keys = {
+    keys = {
 
         {
           "<leader>xx",
@@ -12,6 +12,6 @@ return {
           desc = "Diagnostics - Trouble",
         },
 
-	}
+    }
 
 }
