@@ -1,55 +1,55 @@
 return {
-	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
+    {
+        "hrsh7th/cmp-nvim-lsp",
+    },
 
-	{
-		"L3MON4D3/LuaSnip",
+    {
+        "L3MON4D3/LuaSnip",
 
-		dependencies = {
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
-		},
-	},
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+        },
+    },
 
-	{},
+    {},
 
-	{
-		"hrsh7th/nvim-cmp",
-		config = function()
-			local cmp = require("cmp")
-			require("luasnip.loaders.from_vscode").lazy_load()
+    {
+        "hrsh7th/nvim-cmp",
+        config = function()
+            local cmp = require("cmp")
+            require("luasnip.loaders.from_vscode").lazy_load()
 
-			cmp.setup({
+            cmp.setup({
 
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
+                snippet = {
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end,
+                },
 
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
+                window = {
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
+                },
 
-				mapping = cmp.mapping.preset.insert({
-					["<c-e>"] = cmp.mapping.abort(),
-					["<cr>"] = cmp.mapping.confirm({ select = true }),
-				}),
+                mapping = cmp.mapping.preset.insert({
+                    ["<c-e>"] = cmp.mapping.abort(),
+                    ["<cr>"] = cmp.mapping.confirm({ select = true }),
+                }),
 
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "snippy" },
-				},
-					{{ name = "buffer" },}
-				),
-			})
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "snippy" },
+                },
+                    {{ name = "buffer" },}
+                ),
+            })
 
-			vim.keymap.set('i', '<C-e>', cmp.mapping.abort(), { desc = "Lsp - Abort completion" })
+            vim.keymap.set('i', '<C-e>', cmp.mapping.abort(), { desc = "Lsp - Abort completion" })
       vim.keymap.set('i', '<CR>', cmp.mapping.confirm({ select = true }), { desc = "Lsp - Confirm selection" })
 
-		end,
-	},
+        end,
+    },
 }

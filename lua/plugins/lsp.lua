@@ -1,5 +1,4 @@
 local servers = {
-    "asm_lsp",
     "clangd",
     "cmake",
     "lua_ls",
